@@ -11,12 +11,12 @@ img =double(imnoise(uint8(img),'salt & pepper'));
 % Mask sample
 mask =zeros(3,3);
 
-img_new =MeanFilter(img,mask);
+img_new =MinMaxFilter(img,mask);
 
 figure(1); imshow(uint8(img));
 figure(2); imshow(uint8(img_new))
 
-function result =MeanFilter(img_org,mask)
+function result =MinMaxFilter(img_org,mask)
 %Copy the image to another variable to update //Convert to Grayscale
 img_new =img_org;   %rgb2gray(img);
 
@@ -26,7 +26,7 @@ z =zeros(size(img_org,1)+(changes*2),size(img_org,2)+(changes*2));
 z(1+changes:end-changes, 1+changes:end-changes) = img_org;
 img_org =z;
 
-%Applying Mean Filtering
+%Applying Min-Max Filtering
 %Loops for checking original image
 for x = 1:size(img_org,1) - size(mask, 1)
     for y = 1:size(img_org,2) - size(mask, 2)
