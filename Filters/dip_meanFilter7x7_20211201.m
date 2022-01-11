@@ -2,7 +2,7 @@
 clc;
 clear;
 close all;
-disp('Mean Filtering using 3x3 Mask');
+disp('Mean Filtering using 7x7 Mask');
 
 %Implementaion
 img_org =double(imread('rice.png'));
